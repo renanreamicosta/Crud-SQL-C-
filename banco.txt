@@ -1,0 +1,84 @@
+1-CREATE DATABASE CADASTRO;
+
+2-use CADASTRO;
+
+3-CREATE TABLE CLIENTE
+(
+    ID_Cli int not null IDENTITY PRIMARY KEY,
+    Nome VARCHAR (100) not null,
+	Email VARCHAR (100) not null,
+	Logotipo varbinary(max),
+);
+
+4-CREATE TABLE LOGRADOURO (
+    COD_Log int not null IDENTITY  PRIMARY KEY ,
+    COD_Cli Int not null,
+	Logradouro VARCHAR (100),
+);
+
+5-ALTER TABLE  LOGRADOURO
+   ADD CONSTRAINT FK_CLI_LOG FOREIGN KEY (COD_Cli)
+      REFERENCES CLIENTE (ID_Cli);
+
+6-CREATE TABLE Usuarios (
+    Login varchar(30)not null ,
+    Senha varchar(20) not null,
+);
+----------------------------------------------- Procedures
+7-CREATE PROCEDURE selectClientes @ID_Cli int
+AS
+select * from CLIENTE where ID_Cli like @ID_Cli;
+
+8-CREATE PROCEDURE select_Cliente @Nome varchar(100)
+as
+select l.COD_Cli,c.Nome,c.Email,c.Logotipo,l.COD_Log,l.Logradouro from LOGRADOURO as l
+ inner join CLIENTE as c 
+ on c.ID_Cli = l.COD_Cli  where Nome like @Nome
+
+9-CREATE PROCEDURE AddCliente @Nome varchar(100) , @Email varchar(100),@logotipo varbinary(max)
+as
+insert into CLIENTE (Nome,Email,Logotipo) values (@Nome,@Email,@logotipo);
+
+10-CREATE PROCEDURE AlteraCliente @Nome varchar(100) , @Email varchar(100),@logotipo varbinary(max),@ID_Cli int 
+as
+update CLIENTE set Nome = @Nome, Email = @Email , Logotipo = @logotipo where ID_Cli = @ID_Cli
+
+11-CREATE PROCEDURE selectAllCliente   
+as
+select * from CLIENTE;
+
+12-CREATE PROCEDURE Deletecliente  @ID_Cli int 
+as
+delete from CLIENTE where ID_Cli = @ID_Cli;
+
+13-CREATE PROCEDURE selectclienteOne  @ID_Cli int 
+as
+select * from CLIENTE where ID_Cli like @ID_Cli;
+
+14-CREATE PROCEDURE ADDLogradouro  @COD_Cli int  , @Logradouro varchar(100)
+as
+insert into LOGRADOURO (COD_Cli,Logradouro) values (@COD_Cli,@Logradouro);
+
+15-CREATE PROCEDURE deleteLogradouro  @COD_Log int
+as
+delete from LOGRADOURO where COD_Log = @COD_Log;
+
+16-CREATE PROCEDURE AlteraLogradouro   @Logradouro varchar(100), @COD_Log int
+as
+update LOGRADOURO set Logradouro = @Logradouro  where COD_Log = @COD_Log;
+
+17-CREATE PROCEDURE buscalogin   @Login varchar(30),@Senha varchar(20)
+as
+select * from Usuarios where Login like @Login and Senha = @Senha;
+
+18-CREATE PROCEDURE ExcluirAllLogradouro  @COD_Cli int
+as
+delete from LOGRADOURO where COD_Cli = @COD_Cli;
+
+19-CREATE PROCEDURE addUsuarios  @Login varchar(30) ,@Senha varchar(20)
+as
+insert into Usuarios (Login, Senha) values (@Login, @Senha);
+
+20-CREATE PROCEDURE verificaEmail  @Email varchar(100)
+as
+select * from CLIENTE where Email like @Email;

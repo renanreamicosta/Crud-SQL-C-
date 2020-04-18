@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -15,7 +9,7 @@ namespace WindowsFormsApp1
     public partial class LogMenu : Form
     {
         SqlConnection sqlCon = null;
-        private string strCon = "Your DB path goes here.";
+        private string strCon = @"Data Source=DESKTOP-PV2UP24;Initial Catalog=CADASTRO;Integrated Security=True";
         private string strSql = string.Empty;
 
         public LogMenu()
@@ -24,7 +18,6 @@ namespace WindowsFormsApp1
 
 
         }
-
 
 
         private void cADASTRARToolStripMenuItem_Click(object sender, EventArgs e)
@@ -52,13 +45,12 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            strSql = "select * from Usuarios where Login like @Login and Senha = @Senha";
-
+            strSql = "EXEC buscalogin @Login = @login , @Senha = @senha ";
             sqlCon = new SqlConnection(strCon);
             SqlCommand comando = new SqlCommand(strSql, sqlCon);
 
-            comando.Parameters.AddWithValue("@Login", SqlDbType.VarChar).Value = txt_login.Text;
-            comando.Parameters.AddWithValue("@Senha", SqlDbType.VarChar).Value = txt_senha.Text;
+            comando.Parameters.AddWithValue("@login", SqlDbType.VarChar).Value = txt_login.Text;
+            comando.Parameters.AddWithValue("@senha", SqlDbType.VarChar).Value = txt_senha.Text;
             comando.Connection = sqlCon;
             sqlCon.Open();
 

@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1
@@ -19,7 +13,7 @@ namespace WindowsFormsApp1
         }
 
         SqlConnection sqlCon = null;
-        private string strCon = "Your DB path goes here.";
+        private string strCon = @"Data Source=DESKTOP-PV2UP24;Initial Catalog=CADASTRO;Integrated Security=True";
         private string strSql = string.Empty;
 
         private void Crud_Load(object sender, EventArgs e)
@@ -29,13 +23,13 @@ namespace WindowsFormsApp1
 
         private void btn_cad_Click(object sender, EventArgs e)
         {
-            strSql = "insert into Usuarios (Login, Senha) values (@Login, @Senha)";
+            strSql = "EXEC addUsuarios @Login = @login , @Senha = @senha";
 
             sqlCon = new SqlConnection(strCon);
             SqlCommand comando = new SqlCommand(strSql, sqlCon);
 
-            comando.Parameters.Add("@Login", SqlDbType.VarChar).Value = txt_login_cad.Text;
-            comando.Parameters.Add("@Senha", SqlDbType.VarChar).Value = txt_senha_cad.Text;
+            comando.Parameters.Add("@login", SqlDbType.VarChar).Value = txt_login_cad.Text;
+            comando.Parameters.Add("@senha", SqlDbType.VarChar).Value = txt_senha_cad.Text;
 
             try
             {

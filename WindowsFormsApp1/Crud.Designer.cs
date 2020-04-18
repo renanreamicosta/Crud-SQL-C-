@@ -37,14 +37,14 @@
             // 
             // txt_login_cad
             // 
-            this.txt_login_cad.Location = new System.Drawing.Point(74, 42);
+            this.txt_login_cad.Location = new System.Drawing.Point(61, 20);
             this.txt_login_cad.Name = "txt_login_cad";
             this.txt_login_cad.Size = new System.Drawing.Size(100, 20);
             this.txt_login_cad.TabIndex = 0;
             // 
             // txt_senha_cad
             // 
-            this.txt_senha_cad.Location = new System.Drawing.Point(74, 68);
+            this.txt_senha_cad.Location = new System.Drawing.Point(61, 46);
             this.txt_senha_cad.Name = "txt_senha_cad";
             this.txt_senha_cad.Size = new System.Drawing.Size(100, 20);
             this.txt_senha_cad.TabIndex = 1;
@@ -52,7 +52,7 @@
             // 
             // btn_cad
             // 
-            this.btn_cad.Location = new System.Drawing.Point(74, 103);
+            this.btn_cad.Location = new System.Drawing.Point(61, 81);
             this.btn_cad.Name = "btn_cad";
             this.btn_cad.Size = new System.Drawing.Size(65, 36);
             this.btn_cad.TabIndex = 2;
@@ -63,7 +63,7 @@
             // Login
             // 
             this.Login.AutoSize = true;
-            this.Login.Location = new System.Drawing.Point(26, 48);
+            this.Login.Location = new System.Drawing.Point(13, 26);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(33, 13);
             this.Login.TabIndex = 3;
@@ -73,7 +73,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 75);
+            this.label1.Location = new System.Drawing.Point(13, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 4;
@@ -83,7 +83,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(209, 165);
+            this.ClientSize = new System.Drawing.Size(213, 126);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Login);
             this.Controls.Add(this.btn_cad);

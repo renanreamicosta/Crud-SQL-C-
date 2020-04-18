@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2003
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crud_test", "WindowsFormsApp1\Crud_test.csproj", "{A8C55712-E5CA-4B66-B3BA-5C41AD9237E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudSQL", "WindowsFormsApp1\CrudSQL.csproj", "{A8C55712-E5CA-4B66-B3BA-5C41AD9237E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
